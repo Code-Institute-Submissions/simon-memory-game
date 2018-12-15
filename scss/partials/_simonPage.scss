@@ -1,0 +1,111 @@
+$simonButtonHeight: 150px;
+
+// simon button template
+%simon-button{
+    width: $simonButtonHeight;
+    height: $simonButtonHeight;
+    border: 4px solid rgba(70, 70, 70, 1);
+    position: absolute;
+    transition: all 0.1s ease-in-out;
+}
+
+// Mixin used to set border radius
+@mixin applyBorderRadius($top-left, $top-right, $bottom-right, $bottom-left) {
+    border-radius: $top-left $top-right $bottom-right $bottom-left;
+}
+
+.container{
+    width: 500px;
+    height: 500px;
+    margin: 10px auto;
+    padding: 10px;
+
+    .bg-circle{
+        height: 400px;
+        width: 400px;
+        border-radius: 50%;
+        background-color: rgba(110, 110, 110, 0.8);
+        border: 4px solid rgba(70, 70, 70, 1);
+        margin: 0 auto;
+        position: relative;
+    }
+
+    #simon-green{
+        @extend %simon-button;
+        @include applyBorderRadius(100%, 50px, 100px, 50px);
+        background-color: green;
+        top: 30px;
+        left: 30px;
+    }
+
+    #simon-green:hover{
+        cursor: pointer;
+    }
+
+    #simon-green:active{
+        background-color: rgb(92, 179, 92);
+    }
+    
+    #simon-red{
+        @extend %simon-button;
+        @include applyBorderRadius(50px, 100%, 50px, 100px);
+        background-color: red;
+        top: 30px;
+        right: 30px;
+    }
+
+    #simon-red:hover{
+        cursor: pointer;
+    }
+
+    #simon-red:active{
+        background-color: rgb(247, 111, 111);
+    }
+
+    #simon-blue{
+        @extend %simon-button;
+        @include applyBorderRadius(100px, 50px, 100%, 50px);
+        background-color: blue;
+        bottom: 30px;
+        right: 30px;
+    }
+
+    #simon-blue:hover{
+        cursor: pointer;
+    }
+
+    #simon-blue:active{
+        background-color: rgb(96, 96, 231);
+    }
+
+    #simon-yellow{
+        @extend %simon-button;
+        @include applyBorderRadius(50px, 100px, 50px, 100%);
+        background-color: yellow;
+        bottom: 30px;
+        left: 30px;
+    }
+
+    #simon-yellow:hover{
+        cursor: pointer;
+    }
+
+    #simon-yellow:active{
+        background-color: rgb(224, 224, 112);
+    }
+
+    #display{
+        font-family: VT323;
+        width: 90px;
+        height: 90px;
+        text-align: center;
+        line-height: 90px;
+        font-size: 4em;
+        color: red;
+        border-radius: 50%;
+        background-color: black;
+        position: absolute;
+        top: 39%;
+        left: 39%;
+    }
+}
