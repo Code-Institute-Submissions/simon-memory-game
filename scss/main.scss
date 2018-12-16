@@ -2,11 +2,12 @@
 @import url(https://fonts.googleapis.com/css?family=VT323);
 
 html, body{
-    font-family: cursive, sans-serif;
+    font-family: sans-serif;
     font-size: 18px;
     line-height: 1.5;
     color: #fff;
     background-color: #ccc;
 }
 
-@import "partials/_simonPage";
+@import "./partials/homePage";
+@import "./partials/simonPage";

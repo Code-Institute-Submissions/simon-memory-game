@@ -1,42 +1,33 @@
 @import url(https://fonts.googleapis.com/css?family=VT323);
-/* line 4, C:/Users/Ezat/Documents/Programming/Web Dev Diploma/Sect 5 Milestone Project/scss/main.scss */
 html, body {
-  font-family: cursive, sans-serif;
+  font-family: sans-serif;
   font-size: 18px;
   line-height: 1.5;
   color: #fff;
   background-color: #ccc;
 }
 
-/* line 4, C:/Users/Ezat/Documents/Programming/Web Dev Diploma/Sect 5 Milestone Project/scss/partials/_simonPage.scss */
 .container #simon-green, .container #simon-red, .container #simon-blue, .container #simon-yellow {
-  width: 150px;
-  height: 150px;
   border: 4px solid #464646;
   position: absolute;
   transition: all 0.1s ease-in-out;
 }
 
-/* line 17, C:/Users/Ezat/Documents/Programming/Web Dev Diploma/Sect 5 Milestone Project/scss/partials/_simonPage.scss */
-.container {
-  width: 500px;
-  height: 500px;
-  margin: 10px auto;
-  padding: 10px;
-}
-
-/* line 23, C:/Users/Ezat/Documents/Programming/Web Dev Diploma/Sect 5 Milestone Project/scss/partials/_simonPage.scss */
 .container .bg-circle {
   height: 400px;
   width: 400px;
   border-radius: 50%;
   background-color: rgba(110, 110, 110, 0.8);
   border: 4px solid #464646;
-  margin: 0 auto;
+  margin: 10px auto;
   position: relative;
 }
 
-/* line 33, C:/Users/Ezat/Documents/Programming/Web Dev Diploma/Sect 5 Milestone Project/scss/partials/_simonPage.scss */
+.container .simon {
+  width: 150px;
+  height: 150px;
+}
+
 .container #simon-green {
   border-radius: 100% 50px 100px 50px;
   background-color: green;
@@ -44,17 +35,14 @@ html, body {
   left: 30px;
 }
 
-/* line 41, C:/Users/Ezat/Documents/Programming/Web Dev Diploma/Sect 5 Milestone Project/scss/partials/_simonPage.scss */
 .container #simon-green:hover {
   cursor: pointer;
 }
 
-/* line 45, C:/Users/Ezat/Documents/Programming/Web Dev Diploma/Sect 5 Milestone Project/scss/partials/_simonPage.scss */
 .container #simon-green:active {
   background-color: #5cb35c;
 }
 
-/* line 49, C:/Users/Ezat/Documents/Programming/Web Dev Diploma/Sect 5 Milestone Project/scss/partials/_simonPage.scss */
 .container #simon-red {
   border-radius: 50px 100% 50px 100px;
   background-color: red;
@@ -62,17 +50,14 @@ html, body {
   right: 30px;
 }
 
-/* line 57, C:/Users/Ezat/Documents/Programming/Web Dev Diploma/Sect 5 Milestone Project/scss/partials/_simonPage.scss */
 .container #simon-red:hover {
   cursor: pointer;
 }
 
-/* line 61, C:/Users/Ezat/Documents/Programming/Web Dev Diploma/Sect 5 Milestone Project/scss/partials/_simonPage.scss */
 .container #simon-red:active {
   background-color: #f76f6f;
 }
 
-/* line 65, C:/Users/Ezat/Documents/Programming/Web Dev Diploma/Sect 5 Milestone Project/scss/partials/_simonPage.scss */
 .container #simon-blue {
   border-radius: 100px 50px 100% 50px;
   background-color: blue;
@@ -80,17 +65,14 @@ html, body {
   right: 30px;
 }
 
-/* line 73, C:/Users/Ezat/Documents/Programming/Web Dev Diploma/Sect 5 Milestone Project/scss/partials/_simonPage.scss */
 .container #simon-blue:hover {
   cursor: pointer;
 }
 
-/* line 77, C:/Users/Ezat/Documents/Programming/Web Dev Diploma/Sect 5 Milestone Project/scss/partials/_simonPage.scss */
 .container #simon-blue:active {
   background-color: #6060e7;
 }
 
-/* line 81, C:/Users/Ezat/Documents/Programming/Web Dev Diploma/Sect 5 Milestone Project/scss/partials/_simonPage.scss */
 .container #simon-yellow {
   border-radius: 50px 100px 50px 100%;
   background-color: yellow;
@@ -98,18 +80,15 @@ html, body {
   left: 30px;
 }
 
-/* line 89, C:/Users/Ezat/Documents/Programming/Web Dev Diploma/Sect 5 Milestone Project/scss/partials/_simonPage.scss */
 .container #simon-yellow:hover {
   cursor: pointer;
 }
 
-/* line 93, C:/Users/Ezat/Documents/Programming/Web Dev Diploma/Sect 5 Milestone Project/scss/partials/_simonPage.scss */
 .container #simon-yellow:active {
-  background-color: #e0e070;
+  background-color: #f0f0c0;
 }
 
-/* line 97, C:/Users/Ezat/Documents/Programming/Web Dev Diploma/Sect 5 Milestone Project/scss/partials/_simonPage.scss */
-.container #display {
+.container #score-display {
   font-family: VT323;
   width: 90px;
   height: 90px;
@@ -120,8 +99,26 @@ html, body {
   border-radius: 50%;
   background-color: black;
   position: absolute;
-  top: 39%;
-  left: 39%;
+  top: 150px;
+  left: 152px;
 }
 
-/*# sourceMappingURL=../css/main.map */
+@media (max-width: 768px) {
+  .container .bg-circle {
+    height: 350px;
+    width: 350px;
+    padding: 0;
+  }
+  .container .simon {
+    height: 130px;
+    width: 130px;
+  }
+  .container #score-display {
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    top: 130px;
+    left: 132px;
+    font-size: 3em;
+  }
+}

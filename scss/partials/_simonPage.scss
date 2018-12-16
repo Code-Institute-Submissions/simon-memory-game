@@ -1,9 +1,8 @@
 $simonButtonHeight: 150px;
+$simonBigCircleHeight: 400px;
 
 // simon button template
 %simon-button{
-    width: $simonButtonHeight;
-    height: $simonButtonHeight;
     border: 4px solid rgba(70, 70, 70, 1);
     position: absolute;
     transition: all 0.1s ease-in-out;
@@ -15,19 +14,20 @@ $simonButtonHeight: 150px;
 }
 
 .container{
-    width: 500px;
-    height: 500px;
-    margin: 10px auto;
-    padding: 10px;
 
     .bg-circle{
-        height: 400px;
-        width: 400px;
+        height: $simonBigCircleHeight;
+        width: $simonBigCircleHeight;
         border-radius: 50%;
         background-color: rgba(110, 110, 110, 0.8);
         border: 4px solid rgba(70, 70, 70, 1);
-        margin: 0 auto;
+        margin: 10px auto;
         position: relative;
+    }
+
+    .simon{
+        width: $simonButtonHeight;
+        height: $simonButtonHeight;
     }
 
     #simon-green{
@@ -91,10 +91,10 @@ $simonButtonHeight: 150px;
     }
 
     #simon-yellow:active{
-        background-color: rgb(224, 224, 112);
+        background-color: rgb(240, 240, 192);
     }
 
-    #display{
+    #score-display{
         font-family: VT323;
         width: 90px;
         height: 90px;
@@ -105,7 +105,30 @@ $simonButtonHeight: 150px;
         border-radius: 50%;
         background-color: black;
         position: absolute;
-        top: 39%;
-        left: 39%;
+        top: 150px;
+        left: 152px;
+    }
+
+    @media (max-width: 768px){
+        .bg-circle{
+            height: $simonBigCircleHeight - 50px;
+            width: $simonBigCircleHeight - 50px;
+            padding: 0;
+        }
+
+        .simon{
+            height: $simonButtonHeight - 20px;
+            width: $simonButtonHeight - 20px;
+        }
+
+        #score-display{
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            top: 130px;
+            left: 132px;
+            font-size: 3em;
+        }
+
     }
 }
