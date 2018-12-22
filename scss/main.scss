@@ -1,4 +1,4 @@
-// Fonts
+/************ Fonts ******/
 @import url(https://fonts.googleapis.com/css?family=VT323);
 
 html, body{
@@ -9,5 +9,141 @@ html, body{
     background-color: #ccc;
 }
 
-@import "./partials/homePage";
-@import "./partials/simonPage";
+/************ Globals ******/
+
+.row{
+    margin-right: 0;
+    margin-left: 0;
+}
+
+/************ Navigation ******/
+
+.navbar {
+    margin-bottom: 0;
+    background-color: #31B0D5;
+    border: 0;
+    border-bottom: #fafafa 3px solid;
+    z-index: 100;
+
+    .navbar-brand {
+        font-weight: bold;
+        color: white;
+        transition: all 0.2s ease-in-out;
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+    }
+
+    .navbar-brand:hover {
+        color: #414348;
+    }
+}
+
+.navbar-default{
+
+    .navbar-collapse {
+        border-color: transparent;
+    }
+
+    .navbar-toggle {
+        border: 0;
+
+        .icon-bar {
+            background-color: white;
+        }
+    }
+
+    .navbar-toggle:hover {
+        background-color: transparent;
+    }
+
+    .navbar-nav a {
+        font-weight: bold;
+        transition: all 0.2s ease-in-out;
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+    }
+
+    .navbar-nav>.active>a,
+    .navbar-nav>.active>a:focus,
+    .navbar-nav>.active>a:hover {
+    color: #414348;
+    background: transparent;
+    }
+
+    .navbar-nav > li > a{
+        color: #fff;
+    }
+
+    .navbar-nav>li>a:focus,
+    .navbar-nav>li>a:hover {
+        color: #414348;
+    }   
+}
+
+ul {
+    li {
+        i{
+            padding-right: 6px;
+            font-size: 30px;
+        }
+    }
+}
+
+/************ Footer ******/
+
+footer{
+    background-color: #31B0D5;
+    color: #fafafa;
+    min-height: 50px;
+    margin: 0;
+    border-top: #fff 3px solid;
+}
+
+.social-links{
+    padding-bottom: 15px;
+}
+
+.social-links li a i{
+    width: 32px;
+    height: 32px;
+    padding: 12px 0;
+    border-radius: 50%;
+    font-size: 13px;
+    line-height: 7px;
+    text-align: center;
+    color: #fafafa;
+    background: rgb(11, 81, 102);
+    transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+}
+
+.socials-heading{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.social-links li a i:hover{
+    background: #e8491d;
+}
+
+#footer-details{
+    text-align: right;
+}
+
+#footer-text{
+    font-size: 14px;
+}
+
+/************ Media Queries ******/
+
+@media screen and (min-width: 768px){
+    .navbar{
+        border-radius: 0;
+    }
+}
+
+/************ Importing SASS partials ******/
+
+@import "./partials/_homePage.scss";
+@import "./partials/_simonPage.scss";

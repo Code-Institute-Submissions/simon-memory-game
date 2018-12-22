@@ -109,7 +109,7 @@ $simonBigCircleHeight: 400px;
         left: 152px;
     }
 
-    @media (max-width: 768px){
+    @media screen and (max-width: 768px){
         .bg-circle{
             height: $simonBigCircleHeight - 50px;
             width: $simonBigCircleHeight - 50px;

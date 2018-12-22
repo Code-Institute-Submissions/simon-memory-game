@@ -1,0 +1,29 @@
+
+// Home Page - Jumbotron
+
+.jumbotron{
+    background: url(../assets/img/cubes_background.jpg) no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    letter-spacing: 2.5px;
+    height: 400px;
+    position: relative;
+
+    .call-out-overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.1);
+        z-index: 1;
+
+        h1{
+            padding-top: 60px;
+        }
+    }
+
+
+}
