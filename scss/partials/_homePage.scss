@@ -1,6 +1,7 @@
 
-// Home Page - Jumbotron
+/************ Home page ******/
 
+/***** Jumbotron ****/
 .jumbotron{
     background: url(../assets/img/cubes_background.jpg) no-repeat center center;
     background-size: cover;
@@ -8,7 +9,7 @@
     text-align: center;
     margin: 0;
     letter-spacing: 2.5px;
-    height: 400px;
+    height: 350px;
     position: relative;
 
     .call-out-overlay{
@@ -17,13 +18,62 @@
         left: 0;
         height: 100%;
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.1);
+        background-color: rgba(0, 0, 0, 0.15);
         z-index: 1;
 
         h1{
-            padding-top: 60px;
+            padding-top: 50px;
+        }
+
+        .btn{
+            border-width: 2px;
+            display: block;
+            margin: 0 auto;
+            width: 140px;
+            height: 40px;
+            font-size: 16px;
+            font-weight: bold;
         }
     }
 
+}
 
+/***** Testimonials ****/
+
+.testimonial-container{
+    color: #fff;
+    background: rgb(141, 199, 233);
+}
+
+.block-divider {
+    width: 75px;
+    height: 5px;
+    border: 0;
+    background-color: #fafafa;
+}
+
+.block-divider--short {
+    width: 35px;
+}
+
+.testimonial .page-header {
+    margin-bottom: 25px;
+}
+
+.page-header {
+    margin-bottom: 0;
+    border-bottom: 0;
+    text-align: center;
+
+    h2 {
+        margin-top: 0;
+    }
+}
+
+blockquote.quote {
+    border-left: 0;
+}
+
+.content-container {
+    padding-bottom: 40px;
 }
