@@ -26,24 +26,25 @@
                     <div class="navbar-collapse collapse" id="navbar">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="index.html"><i class="fa fa-home"></i><span>Home</span></a></li>
-                            <li class="active"><a href="simon.html"><i class="fa fa-image"></i><span>Play</span></a></li>
+                            <li class="active"><a href="simon.html"><i class="fa fa-game"></i><span>Play</span></a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
         </header>
-        <section class="container">
-            <div class="bg-circle">
-                <div class="simon" id="simon-green"></div>
-                <div class="simon" id="simon-red"></div>
-                <div id="score-display">--</div>
-                <div class="simon" id="simon-yellow"></div>
-                <div class="simon" id="simon-blue"></div>
+        <section class="game-section">
+            <div class="simon-wrapper">
+                <div class="bg-circle">
+                    <div class="simon" id="simon-green"></div>
+                    <div class="simon" id="simon-red"></div>
+                    <div id="score-display">--</div>
+                    <div class="simon" id="simon-yellow"></div>
+                    <div class="simon" id="simon-blue"></div>
+                </div>
             </div>
-        </section>
-        <section>
-            <div class="container">
-                <a class="btn btn-warning">Reset</a>
+            <div class="game-buttons">
+                <button class="btn btn-info simon-button button-hide">Play</button>
+                <button class="btn btn-warning simon-button">Restart</button>
             </div>
         </section>
         <footer>

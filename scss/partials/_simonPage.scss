@@ -1,19 +1,34 @@
 $simonButtonHeight: 150px;
 $simonBigCircleHeight: 400px;
 
-// simon button template
+/************ simon button template ******/
 %simon-button{
     border: 4px solid rgba(70, 70, 70, 1);
     position: absolute;
     transition: all 0.1s ease-in-out;
 }
 
-// Mixin used to set border radius
+/************ Mixin used to set border radius ******/ 
 @mixin applyBorderRadius($top-left, $top-right, $bottom-right, $bottom-left) {
     border-radius: $top-left $top-right $bottom-right $bottom-left;
 }
 
-.container{
+.game-section{
+    width: 100%;
+    height: 550px;
+    margin: 0 auto;
+    background: linear-gradient(to left, #39D0D0, #A8CEE4);
+    background: -webkit-linear-gradient(to left, #39D0D0, #A8CEE4);
+    background: -moz-linear-gradient(to left, #39D0D0, #A8CEE4);
+    background: -ms-linear-gradient(to left, #39D0D0, #A8CEE4);
+    background: -o-linear-gradient(to left, #39D0D0, #A8CEE4);
+
+    .simon-wrapper{
+        padding-top: 65px;
+        margin-bottom: 30px;
+        width: 100%;
+        height: 450px;
+    }
 
     .bg-circle{
         height: $simonBigCircleHeight;
@@ -108,6 +123,29 @@ $simonBigCircleHeight: 400px;
         top: 150px;
         left: 152px;
     }
+
+    /************ Play/Restart Buttons ******/
+    .game-buttons{
+        width: 200px;
+        height: 100px;
+        margin: 50px auto;
+
+        .btn{
+            border-width: 2px;
+            display: block;
+            margin: 0 auto;
+            width: 80px;
+            height: 40px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .button-hide{
+            display: none;
+        }
+    }
+
+/************ Media Queries ******/
 
     @media screen and (max-width: 768px){
         .bg-circle{
