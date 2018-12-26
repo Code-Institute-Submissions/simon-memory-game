@@ -56,10 +56,6 @@ $simonBigCircleHeight: 400px;
     #simon-green:hover{
         cursor: pointer;
     }
-
-    #simon-green:active{
-        background-color: rgb(92, 179, 92);
-    }
     
     #simon-red{
         @extend %simon-button;
@@ -71,10 +67,6 @@ $simonBigCircleHeight: 400px;
 
     #simon-red:hover{
         cursor: pointer;
-    }
-
-    #simon-red:active{
-        background-color: rgb(247, 111, 111);
     }
 
     #simon-blue{
@@ -89,10 +81,6 @@ $simonBigCircleHeight: 400px;
         cursor: pointer;
     }
 
-    #simon-blue:active{
-        background-color: rgb(96, 96, 231);
-    }
-
     #simon-yellow{
         @extend %simon-button;
         @include applyBorderRadius(50px, 100px, 50px, 100%);
@@ -103,10 +91,6 @@ $simonBigCircleHeight: 400px;
 
     #simon-yellow:hover{
         cursor: pointer;
-    }
-
-    #simon-yellow:active{
-        background-color: rgb(240, 240, 192);
     }
 
     #score-display{

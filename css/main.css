@@ -203,8 +203,6 @@ blockquote.quote {
     left: 30px; }
   .game-section #simon-green:hover {
     cursor: pointer; }
-  .game-section #simon-green:active {
-    background-color: #5cb35c; }
   .game-section #simon-red {
     border-radius: 50px 100% 50px 100px;
     background-color: red;
@@ -212,8 +210,6 @@ blockquote.quote {
     right: 30px; }
   .game-section #simon-red:hover {
     cursor: pointer; }
-  .game-section #simon-red:active {
-    background-color: #f76f6f; }
   .game-section #simon-blue {
     border-radius: 100px 50px 100% 50px;
     background-color: blue;
@@ -221,8 +217,6 @@ blockquote.quote {
     right: 30px; }
   .game-section #simon-blue:hover {
     cursor: pointer; }
-  .game-section #simon-blue:active {
-    background-color: #6060e7; }
   .game-section #simon-yellow {
     border-radius: 50px 100px 50px 100%;
     background-color: yellow;
@@ -230,8 +224,6 @@ blockquote.quote {
     left: 30px; }
   .game-section #simon-yellow:hover {
     cursor: pointer; }
-  .game-section #simon-yellow:active {
-    background-color: #f0f0c0; }
   .game-section #score-display {
     font-family: VT323;
     width: 90px;
