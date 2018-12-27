@@ -11,6 +11,7 @@ var blueBeep = new Audio("./assets/sound/simonBlueSound.mp3");
 
 var levelCounter = document.getElementById("score-display");
 
+const gameOverlay = document.getElementById("game-overlay");
 const playButton = document.getElementById("play-btn");
 const restartButton = document.getElementById("restart-btn");
 const greenButton = document.getElementById("simon-green");
@@ -30,9 +31,10 @@ blueButton.addEventListener("click", bluePad);
 // Start game
 function startGame(){
     isGameActive = true;
+    gameOverlay.classList.add("game-overlay-hidden");
     playButton.classList.add("button-hide");
     restartButton.classList.remove("button-hide");
-    levelCounter.innerText = "1";
+    levelCounter.innerText = "01";
     addSimonSequence();
 }
 
@@ -63,17 +65,32 @@ function playPattern(counter){
     }, 1500);
 }
 
+// Game handler - if correct input increment level otherwise show a game over message
 function checkInput(){
-    if(playerInput.length == parseInt(levelCounter.innerText)){
+    if(parseInt(levelCounter.innerText) < 20){
+        if(playerInput.length == parseInt(levelCounter.innerText)){
+            if(correctInput(simonSequence, playerInput) == true){
+                levelCounter.innerText = formatVal(parseInt(levelCounter.innerText) + 1);
+                playerTurn = false;
+                playerInput = [];
+                playPattern(0);
+            }else{
+                gameOverlay.classList.remove("game-overlay-hidden");
+                document.getElementById("game-overlay-message").innerText = `Game Over! Better Luck Next Time. Click 'Restart' to play again.`;
+            }
+        }
+    } else if(playerInput.length == parseInt(levelCounter.innerText) && parseInt(levelCounter.innerText) == 20){
         if(correctInput(simonSequence, playerInput) == true){
-            levelCounter.innerText = parseInt(levelCounter.innerText) + 1;
-            playerTurn = false;
-            playerInput = [];
-            playPattern(0);
+            gameOverlay.classList.remove("game-overlay-hidden");
+            document.getElementById("game-overlay-message").innerText = `Well Done! You Beat Simon. Click 'Restart' to play again.`;
+        }else{
+            gameOverlay.classList.remove("game-overlay-hidden");
+            document.getElementById("game-overlay-message").innerText = `Game Over! Better Luck Next Time. Click 'Restart' to play again.`;
         }
     }
 }
 
+// Check users input against simon sequence and return true if correct or return false if incorrect
 function correctInput(simonSequence, userInput){
     for(var i=0; i<userInput.length; i++){
         if(simonSequence[i] != userInput[i]){
@@ -94,9 +111,19 @@ function addSimonSequence(){
         while(isUnique(simonSequence, seqCandidate) == false){
             seqCandidate = generatePattern();
         }
+        console.log(seqCandidate);
         simonSequence.push(seqCandidate);
     }
     playPattern(0);
+}
+
+// Helper function used to format values
+function formatVal(val){
+    if(parseInt(val) < 10){
+        return "0" + val;
+    }else{
+        return val;
+    }
 }
 
 // Randomly generate a colour 

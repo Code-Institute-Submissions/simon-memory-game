@@ -178,8 +178,25 @@ blockquote.quote {
   background: -moz-linear-gradient(to left, #39D0D0, #A8CEE4);
   background: -ms-linear-gradient(to left, #39D0D0, #A8CEE4);
   background: -o-linear-gradient(to left, #39D0D0, #A8CEE4);
+  position: relative;
   /************ Play/Restart Buttons ******/
   /************ Media Queries ******/ }
+  .game-section #game-overlay {
+    width: 80%;
+    height: 400px;
+    background-color: rgba(64, 34, 230, 0.5);
+    border: 3px solid yellow;
+    position: absolute;
+    z-index: 10;
+    border-radius: 10px;
+    top: 75px;
+    left: 10%; }
+    .game-section #game-overlay #game-overlay-message {
+      text-align: center;
+      padding: 10px;
+      margin-top: 180px; }
+  .game-section .game-overlay-hidden {
+    display: none; }
   .game-section .simon-wrapper {
     padding-top: 65px;
     margin-bottom: 30px;
@@ -265,4 +282,9 @@ blockquote.quote {
       line-height: 80px;
       top: 130px;
       left: 132px;
-      font-size: 3em; } }
+      font-size: 3em; }
+    .game-section #game-overlay {
+      width: 90%;
+      left: 20px; }
+      .game-section #game-overlay #game-overlay-message {
+        margin-top: 120px; } }
