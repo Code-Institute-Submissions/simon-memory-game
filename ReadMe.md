@@ -34,7 +34,7 @@ In this section, you should mention all of the languages, frameworks, libraries,
 - [SASS](https://sass-lang.com/)
     - The project uses **SASS** as the CSS pre-processor to make writing CSS easier; features like inheritance, mixins and variables were all used to make the CSS more easier to write as well as more maintainable.
 - [Font Awesome](https://getbootstrap.com/docs/3.3/)
-    - The project uses **Font Awesome** to provide icons for the 'OUR SOCIALS' links. 
+    - The project uses **Font Awesome** to provide icons for the main navigation and social network links. 
 - [VT323](https://fonts.googleapis.com/css?family=VT323)
     - The website uses **VT323** as the font for the Simon level indicator. 
 - [Balsamiq](https://fonts.google.com/specimen/Roboto)
@@ -58,9 +58,9 @@ Testing scenarios run:
 4. Game-Play:
     1. Go to the "Play" page.
     2. Verify that a message is given to click the 'Start' button to start game.
-    3. Verify that clicking the 'Start' begins game.
+    3. Verify that clicking the 'Start' button begins game.
     4. Applying *correct* input increments the level indicator by 1.
-    5. Apply *incorrect* input displays a 'Game Over' message.
+    5. Applying *incorrect* input displays a 'Game Over' message.
 
 5. Typography:
 	1. Go to the *Home* page.
