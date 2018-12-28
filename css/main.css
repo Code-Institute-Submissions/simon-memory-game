@@ -162,6 +162,12 @@ blockquote.quote {
 .content-container {
   padding-bottom: 40px; }
 
+/***** Media Queries ****/
+@media screen and (max-width: 768px) {
+  .jumbotron .call-out-overlay p {
+    font-size: 18px !important;
+    font-weight: bold !important; } }
+
 /************ SASS variables ******/
 /************ simon button template ******/
 .game-section #simon-green, .game-section #simon-red, .game-section #simon-blue, .game-section #simon-yellow {

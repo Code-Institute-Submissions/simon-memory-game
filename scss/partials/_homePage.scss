@@ -77,3 +77,16 @@ blockquote.quote {
 .content-container {
     padding-bottom: 40px;
 }
+
+/***** Media Queries ****/
+
+@media screen and (max-width: 768px){
+    .jumbotron{
+        .call-out-overlay{
+            p{
+                font-size: 18px !important;
+                font-weight: bold !important;
+            }
+        }
+    }
+}
