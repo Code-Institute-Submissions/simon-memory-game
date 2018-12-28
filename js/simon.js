@@ -1,6 +1,9 @@
 
+// Boolean variables used to determine active game and users turn
 var isGameActive = false;
 var playerTurn = false;
+
+// simon sequence & user input array variables
 var simonSequence = [];
 var playerInput = [];
 
@@ -10,15 +13,22 @@ var redBeep = new Audio("./assets/sound/simonRedSound.mp3");
 var yellowBeep = new Audio("./assets/sound/simonYellowSound.mp3");
 var blueBeep = new Audio("./assets/sound/simonBlueSound.mp3");
 
+// Level indicator variable
 var levelCounter = document.getElementById("score-display");
 
-const gameOverlay = document.getElementById("game-overlay");
+// All game buttons
 const startButton = document.getElementById("play-btn");
 const restartButton = document.getElementById("restart-btn");
 const greenButton = document.getElementById("simon-green");
 const redButton = document.getElementById("simon-red");
 const yellowButton = document.getElementById("simon-yellow");
 const blueButton = document.getElementById("simon-blue");
+
+// Game overlays
+const gameOverlay = document.getElementById("game-overlay");
+const simonOverlay = document.getElementById("simon-turn-overlay");
+
+// Game colours
 const gameColors = ["", "green", "red", "yellow", "blue"];
 
 // Button event listeners
@@ -29,10 +39,18 @@ redButton.addEventListener("click", redPad);
 yellowButton.addEventListener("click", yellowPad);
 blueButton.addEventListener("click", bluePad);
 
+// A quick small screen Landscape orientation check
+window.onload = function(){
+    // if in Landscape mode & the height is less than 550px then display a message to let user know to switch to Landscape mode
+    if((window.innerWidth > window.innerHeight) && (window.innerHeight < 550)){
+        document.getElementById("game-overlay-message").innerText = "Please Switch to Portrait Mode for best game Experience! Click 'Start' To Begin Playing";
+    }
+}
+
 // Start game
 function startGame(){
     isGameActive = true;
-    gameOverlay.classList.add("game-overlay-hidden");
+    gameOverlay.classList.add("overlay-hidden");
     startButton.classList.add("button-hide");
     restartButton.classList.remove("button-hide");
     levelCounter.innerText = "01";
@@ -66,6 +84,8 @@ function playPattern(counter){
         }else{
             // otherwise stop playing simon sequence and its the players turn
             playerTurn = true;
+            // Disable simon overlay so that user can interact with Simon
+            setTimeout(function(){simonOverlay.classList.add("overlay-hidden");}, 1000)
         }
     }, 1500);
 }
@@ -74,28 +94,33 @@ function playPattern(counter){
 function checkInput(){
     if(parseInt(levelCounter.innerText) < 20){
         // if not level 20 then check if users input is correct
-        if(playerInput.length == parseInt(levelCounter.innerText)){
-            if(correctInput(simonSequence, playerInput) == true){
-                //if correct then increment level by 1 and play another simon sequence
+        if(correctInput(simonSequence, playerInput) == true){
+            //if correct and player has applied relevant number of inputs then increment level by 1 and play another simon sequence
+            if(playerInput.length == parseInt(levelCounter.innerText)){
                 levelCounter.innerText = formatVal(parseInt(levelCounter.innerText) + 1);
                 playerTurn = false;
                 playerInput = [];
+                // Enable simon overlay so that user cannot interact with Simon whilst sequence is playing
+                simonOverlay.classList.remove("overlay-hidden");
                 playPattern(0);
-            }else{
-                //if incorrect then display game over message and ask user to restart game
-                gameOverlay.classList.remove("game-overlay-hidden");
-                document.getElementById("game-overlay-message").innerText = `Game Over! Better Luck Next Time. Click 'Restart' to play again.`;
             }
+        }else{
+            //if incorrect then display game over message and ask user to restart game
+            gameOverlay.classList.remove("overlay-hidden");
+            document.getElementById("game-overlay-message").innerText = `Game Over! Better Luck Next Time. Click 'Restart' to play again.`;
         }
-    } else if(playerInput.length == parseInt(levelCounter.innerText) && parseInt(levelCounter.innerText) == 20){
+        
+    } else if(parseInt(levelCounter.innerText) == 20){
         // if play is on level 20, check if users input is correct
         if(correctInput(simonSequence, playerInput) == true){
-            //if correct then display a well done message and tell player to restart if they wish to play again
-            gameOverlay.classList.remove("game-overlay-hidden");
-            document.getElementById("game-overlay-message").innerText = `Well Done! You Beat Simon. Click 'Restart' to play again.`;
+            //if correct and user has entered all relevant inputs then display a well done message and tell player to restart if they wish to play again
+            if(playerInput.length == parseInt(levelCounter.innerText)){
+                gameOverlay.classList.remove("overlay-hidden");
+                document.getElementById("game-overlay-message").innerText = `Well Done! You Beat Simon. Click 'Restart' to play again.`;
+            }
         }else{
             //otherwise display a game over message
-            gameOverlay.classList.remove("game-overlay-hidden");
+            gameOverlay.classList.remove("overlay-hidden");
             document.getElementById("game-overlay-message").innerText = `Game Over! You Were So Close! Click 'Restart' to play again.`;
         }
     }
@@ -117,10 +142,10 @@ function addSimonSequence(){
     var seqCandidate = "";
 
     for(var i=0; i<20; i++){
-        seqCandidate = generatePattern();
+        seqCandidate = generateColour();
         // if isUnique returns false then keep generating another random colour until it returns true
         while(isUnique(simonSequence, seqCandidate) == false){
-            seqCandidate = generatePattern();
+            seqCandidate = generateColour();
         }
         // add colour to simon sequence
         simonSequence.push(seqCandidate);
@@ -139,7 +164,7 @@ function formatVal(val){
 }
 
 // Randomly generate a colour 
-function generatePattern(){
+function generateColour(){
     var randomNum;
     // generate a random number from 1 - 4 and use it to select a colour from the 'gameColours' array
     randomNum = Math.floor(Math.random() * 4) + 1;

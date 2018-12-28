@@ -1,26 +1,47 @@
+
 describe("Game Logic Tests", function(){
     
     // Make sure a valid color is returned
-    describe("Defensive programming tests", function(){
+    describe("Make sure a valid colour is returned by the 'generateColour' function", function(){
         // Make sure that colour returned is 'green', 'red', 'yellow' or 'blue'
         var pattern = /(green|red|yellow|blue)/;
 
         it("should return 'green', 'red', 'yellow' or 'blue'", function(){
-            expect(generatePattern()).toMatch(pattern);
+            expect(generateColour()).toMatch(pattern);
         });
         it("should return 'green', 'red', 'yellow' or 'blue'", function(){
-            expect(generatePattern()).toMatch(pattern);
+            expect(generateColour()).toMatch(pattern);
         });
         it("should return 'green', 'red', 'yellow' or 'blue'", function(){
-            expect(generatePattern()).toMatch(pattern);
+            expect(generateColour()).toMatch(pattern);
         });
         it("should return 'green', 'red', 'yellow' or 'blue'", function(){
-            expect(generatePattern()).toMatch(pattern);
+            expect(generateColour()).toMatch(pattern);
         });
     });
 
+    // Make sure that whilst the 'addSimonSequence' function is adding simon sequences, that the 'isUnique' function is called 20 times
+    describe("Make sure 'isUnique' function is being called from the 'addSimonSequence' function", function(){
+        it("'isUnique' should be called 20 times from 'addSimonSequence' function", function(){
+            spyOn(window, "isUnique");
+            addSimonSequence();
+            expect(isUnique).toHaveBeenCalledTimes(20);
+        });
+    });
+
+    // Make sure that after the 'addSimonSequence' function is called that 20 entries are added to 'simonSequence' Array
+    describe("Make sure 'simonSequence' Array has 20 entries after calling 'addSimonSequence' func", function(){
+        it("'isUnique' should be called 20 times from 'addSimonSequence' function", function(){
+            // Empty simonSequence array for a fair test
+            simonSequence = [];
+            addSimonSequence();
+            expect(simonSequence.length).toBe(20);
+        });
+    });
+
+
     // Make sure 'isUnique' function is enforcing the 3 consecutive colour rule
-    describe("Enforce 3 consecutive colour rule", function(){
+    describe("Test 3 consecutive colour rule", function(){
         // Apply dummy sequence to 'isUnique' function and checking result
         it(`'${["green", "yellow", "red", "red", "red"]}' Should return 'false'`, function(){
             expect(isUnique(["green", "yellow", "red", "red", "red"], "red")).toBe(false);
@@ -45,25 +66,25 @@ describe("Game Logic Tests", function(){
         var simonSequence = [];
         var userInput = [];
 
-        it(`'Simon sequence: ${["green", "yellow", "red", "red", "red"]} | User Input: ${["green", "yellow", "red", "red"]}' Should return 'true'`, function(){
+        it(`Simon sequence: '${["green", "yellow", "red", "red", "red"]}' | User Input: '${["green", "yellow", "red", "red"]}' Should return 'true'`, function(){
             simonSequence = ["green", "yellow", "red", "red", "red"];
             userInput = ["green", "yellow", "red", "red"];
             expect(correctInput(simonSequence, userInput)).toBe(true);
         });
 
-        it(`'Simon sequence: ${["blue", "green", "red", "yellow", "green"]} | User Input: ${["yellow", "yellow", "red", "green"]}' Should return 'false'`, function(){
+        it(`Simon sequence: '${["blue", "green", "red", "yellow", "green"]}' | User Input: '${["yellow", "yellow", "red", "green"]}' Should return 'false'`, function(){
             simonSequence = ["blue", "green", "red", "yellow", "green"];
             userInput = ["yellow", "yellow", "red", "green"];
             expect(correctInput(simonSequence, userInput)).toBe(false);
         });
 
-        it(`'Simon sequence: ${["yellow", "red", "green", "blue", "blue"]} | User Input: ${["yellow", "red"]}' Should return 'true'`, function(){
+        it(`Simon sequence: '${["yellow", "red", "green", "blue", "blue"]}' | User Input: '${["yellow", "red"]}' Should return 'true'`, function(){
             simonSequence = ["yellow", "red", "green", "blue", "blue"];
             userInput = ["yellow", "red"];
             expect(correctInput(simonSequence, userInput)).toBe(true);
         });
 
-        it(`'Simon sequence: ${["yellow", "blue", "blue"]} | User Input: ${["green", "blue", "blue"]}' Should return 'false'`, function(){
+        it(`Simon sequence: '${["yellow", "blue", "blue"]}' | User Input: '${["green", "blue", "blue"]}' Should return 'false'`, function(){
             simonSequence = ["yellow", "blue", "blue"];
             userInput = ["green", "blue", "blue"];
             expect(correctInput(simonSequence, userInput)).toBe(false);

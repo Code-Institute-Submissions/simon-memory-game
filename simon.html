@@ -5,13 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Simon - Game</title>
+        <!-- Load Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Load FontAwesome CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+        <!-- Load Our CSS -->
         <link href="./css/main.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <header>
+            <!-- Begin Navigation -->
             <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -31,11 +35,14 @@
                     </div>
                 </div>
             </nav>
+            <!-- End Navigation -->
         </header>
+        <!-- Begin Game Section -->
         <section class="game-section">
             <div id="game-overlay">
                 <h2 id="game-overlay-message">Click 'Start' To Begin Playing!</h2>
             </div>
+            <div id="simon-turn-overlay"></div>
             <div class="simon-wrapper">
                 <div class="bg-circle">
                     <div class="simon" id="simon-green"></div>
@@ -50,6 +57,8 @@
                 <button id="restart-btn" class="btn btn-warning simon-button button-hide">Restart</button>
             </div>
         </section>
+        <!-- End Game Section -->
+        <!-- Start Footer -->
         <footer class="page-footer">
             <div class="container">
                 <div id="footer-details">
@@ -64,9 +73,12 @@
                 </div>
             </div>
         </footer>
+        <!-- End Footer -->
+        <!-- Load JQuery & Bootstrap JS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <!-- Load Simon Game javascript -->
         <script type="text/javascript" src="./js/simon.js"></script>
     </body>
 </html>

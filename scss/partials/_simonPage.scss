@@ -1,3 +1,4 @@
+/************ SASS variables ******/
 $simonButtonHeight: 150px;
 $simonBigCircleHeight: 400px;
 
@@ -8,11 +9,12 @@ $simonBigCircleHeight: 400px;
     transition: all 0.1s ease-in-out;
 }
 
-/************ Mixin used to set border radius ******/ 
+/************ Mixin used to set border radius of Simon Buttons ******/ 
 @mixin applyBorderRadius($top-left, $top-right, $bottom-right, $bottom-left) {
     border-radius: $top-left $top-right $bottom-right $bottom-left;
 }
 
+/************ Simon game styling ******/ 
 .game-section{
     width: 100%;
     height: 560px;
@@ -42,7 +44,17 @@ $simonBigCircleHeight: 400px;
         }
     }
 
-    .game-overlay-hidden{
+    #simon-turn-overlay{
+        width: 80%;
+        height: 400px;
+        background-color: rgba(0, 0, 0, 0);
+        position: absolute;
+        z-index: 9;
+        top: 75px;
+        left: 10%;
+    }
+
+    .overlay-hidden{
         display: none;
     }
 
@@ -131,7 +143,7 @@ $simonBigCircleHeight: 400px;
         left: 152px;
     }
 
-/************ Play/Restart Buttons ******/
+/************ Start/Restart Buttons ******/
     .game-buttons{
         width: 200px;
         height: 100px;
@@ -182,6 +194,11 @@ $simonBigCircleHeight: 400px;
             #game-overlay-message{
                 margin-top: 120px;
             }
+        }
+
+        #simon-turn-overlay{
+            width: 90%;
+            left: 20px;
         }
 
     }
