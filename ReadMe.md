@@ -35,7 +35,7 @@ The game follows the same rules of the original Simon game. With a few exception
 
 ## Technologies Used
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
+List of tools and technologies used in this project are as follows:
 
 - [Bootstrap v3](https://getbootstrap.com/docs/3.3/)
     - The project uses **Bootstrap** to simplify the web page design and to maintain consistency across multiple browsers and screen resolutions.
@@ -65,7 +65,7 @@ In this section, you should mention all of the languages, frameworks, libraries,
 
 The Flow Charts can be found in the following directory: **assets** > **game logic flow charts**
 
-I created 2 flow charts:
+- I created 2 flow charts:
     - The first describes the flow of the Main Game logic.
     - The second describes the flow of how the *3 Consecutive Colour Rule* is achieved.
 
@@ -80,14 +80,14 @@ A description of the game logic and how the JavaScript is written to match it, i
         - Also, from this function the *addSimonSequence* function is called - see step 2 for the explanation of this.
 
 2. The **addSimonSequence** function adds entries to the *simonSequence* Array - a maximum of 20 entries is achieved by using a *For* loop.
-    - The **generatePattern** function is called to generate and return a random colour:
-        - With the help of the JavaScript *Math* library a random number between 1 - 4 is generateds and this number is then used to return a random colour from the *gameColours* Array.
+    - The **generateColour** function is called to generate and return a random colour:
+        - With the help of the JavaScript *Math* library a random number between 1 - 4 is generated and this number is then used to return a random colour from the *gameColours* Array.
     - Before adding each entry, the **isUnique** function is called to enforce the *3 Consective Colour Rule* - see the description of the second flow chart for a more in-depth explanation of how this works.
     - Once 20 entries are added, the **playPattern** function is called:
-        - This takes a parameter of an external counter. 
+        - This takes a parameter of an external counter; given a value of 0 initially.
         - A **setTimeout** function is used so that sufficient time is given to playing back each sequence back to the user.
-            - As each sequence is played back so is the audio and the background changing animation of the relevant Simon button, to achieve this, the handler for each Simon button is called *greenPad*, *redPad* etc.
-        - The number of sequences which are played dependent upon the current game level; if the current level is 1 then only one entry of the *simonSequence* entry is played back to the user etc.
+            - As each sequence is played back so is the audio and the background changing animation of the relevant Simon button; to achieve this, the handler for each Simon button is called: *greenPad*, *redPad* etc.
+        - The number of sequences which are played is dependent upon the current game level; if the current level is 1 then only one entry of the *simonSequence* array is played back to the user etc.
 
 3. Once the sequence is played back to the user, then await input from the user.
 
@@ -98,7 +98,7 @@ A description of the game logic and how the JavaScript is written to match it, i
 
 5. Once a player input is applied, it is stored in the *playerInput* Array and the **checkInput** function is called:
     - Each input is checked against the *simonSequence* Array by calling a **correctInput** function and if any is wrong, then a Game Over message is shown to the user and the user is prompted to click the *Restart* button.
-        - The **resetGame** function is called and it simply reloads the current page.
+        - Clicking *Restart* calls the **resetGame** function which simply reloads the current page.
     - If the input is correct and number of inputs is not equal to the current game level and it is not the final level (20) then keep waiting for more Inputs from the user.
         - Otherwise if all inputs are correct and the number of inputs is equal to current game level then increment the *Level Indicator* by 1 and reset the *playerInput* Array and the **playPattern** function is called again to play the Simon sequence for the next level.
     - If it is the final level and all inputs are correct then display a Well Done message and prompt the user to click the *Restart* button to start the game again.
@@ -148,7 +148,7 @@ Jasmine Framework was used to test various snippets of the JavaScript code which
 - Simon Sequence generation testing:
     - The **generateColour** function is tested to make sure that it returns a value of *green*, *red*, *yellow* or *blue*;
         - This was done by using a Regular Expression pattern together with the Jasmine **toBe** matcher.
-    - By using a Jasmine **Spy**, I wrote a test which checked that whilst the **addSimonSequence** function is called, that the **isUnique** function is also called at least 20 times.
+    - By using a Jasmine **Spy**, I wrote a test which checked that whilst the **addSimonSequence** function is being executed, that the **isUnique** function is called at least 20 times.
     - Another test ensured that after calling the **addSimonSequence** function, the *simonSequence* Array had 20 entries.
 - 3 Consecutive Colour Rule testing:
     - The **isUnique** function was tested by applying various dummy values as the parameters and checking the result.
@@ -184,8 +184,9 @@ Multi browser testing was carried out to ensure there is consistency across diff
 
 ##### Small Screen Landscape Display Mode Limitation
 
-- My Simon game is designed to be played in **Portrait** mode on small screen devices; to notify users of this I have implemented some javascript which detects if the viewport is in *Landscape* mode and the viewport height is less than 550px then it will display a message to let users know to switch to *Landscape* mode.
-    - The only limitation of this is that the check is only made on reloading the page, so if the user loads the page in Portrait mode and then switches to Landscape mode, then it will not display anything.
+- My Simon game is designed to be played in **Portrait** mode on small screen devices and does not run well in Lanscape mode on small screens. 
+    - I have implemented some javascript which detects if the viewport is in *Landscape* mode and the viewport height is less than 550px, and if it is then it will display a message to let users know to switch to *Portrait* mode.
+        - The only limitation of this is that the check is only made on reloading the page, so if the user loads the page in Portrait mode and then switches to Landscape mode, then it will not display anything.
 
 ## Deployment
 
